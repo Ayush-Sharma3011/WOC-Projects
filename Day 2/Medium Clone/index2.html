@@ -41,27 +41,29 @@
 
         .hero {
             background-color: #f7f4ed;
-            
+            display: flex;
+            justify-content: space-between;
             color: black;
             text-align: left;
             padding: 60px 20px;
-            background-image: url('https://miro.medium.com/v2/format:webp/4*SdjkdS98aKH76I8eD0_qjw.png');
+            width: 100%;
             background-size: contain ;
             background-repeat: no-repeat;
             background-position: right;
-            height: 83vh;
+            
         }
 
         .hero h1 {
             text-align: left;
             max-width: 600px;
-            display: inline;
-            margin: 5%;
-            font-size: xx-large;
-            padding: 20px;
+        
+            /* display: inline; */
+            /* margin: 5%; */
+            /* font-size: xx-large; */
+            /* padding: 20px; */
             font-size: 3em;
             margin-bottom: 0;
-            line-height: 1.2;
+            /* line-height: 1.2; */
             color: #292929;
             font-family: gt-super, Georgia, Cambria, "Times New Roman", Times, serif;
         }
@@ -89,6 +91,12 @@
             
         }
 
+        .img-div{
+            height: 100vh;
+        }
+        .img-div img{
+            height: 100%;
+        }
         footer {
             background-color: #f7f4ed;
             padding: 20px;
@@ -120,9 +128,11 @@
     <hr>
 
     <div class="hero">
-        <h1>Human stories & ideas</h1>
-        <p>A place to read, write, and deepen your understanding.</p>
-        <button>Start Reading</button>
+        <div><h1>Human stories & ideas</h1>
+            <p>A place to read, write, and deepen your understanding.</p>
+            <button>Start Reading</button></div>
+        
+        <div class="img-div"><img src="https://miro.medium.com/v2/format:webp/4*SdjkdS98aKH76I8eD0_qjw.png" alt=""></div>
     </div>
 <hr>
     <footer>
