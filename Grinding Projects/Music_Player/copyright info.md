@@ -1,1 +1,2 @@
-<h1>All music files are form yt audio library and only use for education purpose all copyright is with youtube studio library</h1>
+<h2>Disclaimer: All music files included in this project are sourced from the YouTube Audio Library and are used solely for educational purposes. All copyrights remain with the original creators as specified by the YouTube Studio Library. For more details on the licensing and usage terms, please refer to the <a herf="https://studio.youtube.com/channel/UCCZc44NNrEz4qFc_YdEqseg/music">YouTube Audio Library.</a></h2>
+
