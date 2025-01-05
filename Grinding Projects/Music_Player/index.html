@@ -5,13 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Player</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/6131c90a3c.js" crossorigin="anonymous"></script>
 </head>
 <body>
     
     <div class="container">
         <div class="music-player">
-            
+            <nav>
+                <div class="circle">
+                    <i class="fa-solid fa-angle-left"></i>
+                </div>
+                <div class="circle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+            <img src="Media/468-thumbnail.png" alt="" class="song-img">
+            <h1>Despacito</h1>
+            <p>Luis Fonsi Ft. Pureto Rican</p>
+
+            <audio controls>
+                <source src="media/All My Relations - Ryan McCaffrey_Go By Ocean.mp3" type="audio/mpeg">
+            </audio>
+            <input type="range" value="0" id="progress-bar">
+
+            <div class="controls">
+                    <div><i class="fa-solid fa-backward"></i></div>
+                    <div><i class="fa-solid fa-play"></i></div>
+                    <!-- <div><i class="fa-solid fa-pause"></i></div> -->
+                    <div><i class="fa-solid fa-forward"></i></div>
+            </div>
         </div>
     </div>
 </body>
-</html>
+</html>n

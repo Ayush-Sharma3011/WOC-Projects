@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body
+    class="h-screen w-full bg-black bg-cover text-white bg-[url('https://static.vecteezy.com/system/resources/previews/001/401/677/non_2x/abstract-polygonal-shape-black-background-free-vector.jpg')]">
+    <!-- Task input -->
+    <div class="mt-4 flex gap-8 justify-center">
+        <input type="text" id="task-input" placeholder="Enter task here"
+            class="w-[70%] bg-transparent px-7 outline-none border-zinc-400 focus:shadow-md shadow-yellow-400 rounded-md backdrop-blur-md">
+
+        <button onclick="addTask()" class="text-white border border-blue-600 text-blue-500 py-3 px-4 rounded-md">Add Task</button>
+
+    </div>
+    <!-- task list -->
+
+    <div class="w-full h-[80%] p-6">
+        <h1 class="w-full text-center text-3xl font-bold">All Task</h1>
+
+        <div class="w-full gap-4 text-center h-full flex">
+
+            <!-- todo colom -->
+            <div class="w-full p-4 border-2 border-blue-600 bg-opacity-20 shadow-md backdrop-blur-md rounded-md" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h2 class="font-semibold text-2xl mb-2 text-blue-500">To-Do</h2>
+
+                <div id="todolist" class="space-y-4"></div>
+            </div>
+
+            <!-- progressss -->
+            <div class="w-full p-4 border-2 border-yellow-600 bg-opacity-20 shadow-md backdrop-blur-md rounded-md" id="progress" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h2 class="font-semibold text-2xl mb-2 text-yellow-500">In Progress</h2>
+
+                <div id="inprogress-list" class="space-y-4"></div>
+            </div>
+
+            <!-- done -->
+            <div class="w-full p-4 border-2 border-green-600 bg-opacity-20 shadow-md backdrop-blur-md rounded-md" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h2 class="font-semibold text-2xl mb-2 text-green-500">Done</h2>
+
+                <div id="done-list" class="space-y-4"></div>
+            </div>
+
+            <!-- backlog -->
+            <div class="w-full p-4 border-2 border-red-600 bg-opacity-20 shadow-md backdrop-blur-md rounded-md" id="backlog" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h2 class="font-semibold text-2xl mb-2 text-red-500">Back log</h2>
+
+                <div id="backlog-list" class="space-y-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
+
+function addTask(){
+    const taskInput = document.getElementById('taskInput');
+
+    const taskText= taskInput.value.trim();
+
+    if(taskText !== ''){
+        const task = document.createElement('div');
+
+        task.classList.add('task', "border-2", "border-blue-500", "rounded-md", "p-2", "mb-2", "flex", "justify-between", "items-center", "bg-blue-500",'cursor-pointer');
+
+        task.setAttribute('id', 'task-'+new Date().getTime());
+
+        task.setAttribute('draggable', 'true');
+        task.setAttribute('ondragstart', 'drag(event)');
+
+        const taskcontent = document.createElement('span'); 
+
+        taskcontent.classList.add('task-content','text-white','max-w-[80%]');
+        taskcontent.textContent = taskText; //input se aaya text display kara
+
+        task.appendChild(taskcontent); // task me content add kiya
+
+        //delete button
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.classList.add('delete-btn','bg-red-500','text-white','px-1','py-1','rounded-md','ml-2');
+
+        //delete button click hone par task remove
+        deleteBtn.addEventListener('click', function(){
+            task.remove();
+        });
+        task.appendChild(deleteBtn);
+
+        //task ko taskList me add kiya
+
+        document.getElementById("todolist").appendChild(task);
+
+        
+
+    }
+}
+function drag(event){
+    event.dataTransfer.setData('text', event.target.id);
+}
