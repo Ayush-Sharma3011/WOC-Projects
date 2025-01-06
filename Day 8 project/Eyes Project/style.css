@@ -32,3 +32,14 @@ body {
     position: absolute;
     transition: transform 0.05s;
 }
+.smile{
+    display: block;
+}
+.smile img{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
