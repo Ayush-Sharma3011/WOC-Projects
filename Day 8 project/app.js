@@ -36,7 +36,7 @@ function addTask() {
         "bg-red-500",
         "px-2",
         "py-1",
-        "rounded-md",
+        "rounded-md",         
         "ml-2"
       );
   
