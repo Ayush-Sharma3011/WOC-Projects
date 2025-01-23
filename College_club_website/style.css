@@ -1,0 +1,7 @@
+body{
+    background-color: hsla(240, 10%, 4%, 1);
+    color: hsla(0, 0%, 98%, 1);
+    margin: 0;
+    line-height: inherit;
+    display: block;
+}

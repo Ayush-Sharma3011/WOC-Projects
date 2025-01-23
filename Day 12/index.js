@@ -1,30 +1,50 @@
-const express = require('express');
+const express = require("express");
+
 const app = express();
 
-const port = 3000;
-app.listen(port, ()=>{
-    console.log("The app is listening on " + port);
-})
+app.get("/heelo", (req, res) => {
+  res.send("Hello heelo");
+});
 
-app.use(logger);
+app.get("/", (req, res) => {
+  res.send("Hello GET");
+});
 
-app.get('/',(req,res)=>{
-    res.send('Home Page');
-})
+app.post("/", (req, res) => {
+    res.send("Hello POST");
+  });
 
-app.get('/user',auth,(req,res)=>{
-    res.send("users page");
-})
+  app.put("/", (req, res) => {
+    res.send("Hello PUT");
+  });
 
-function logger(req,res, next){
-    console.log('log');
-    next();
+  app.delete("/", (req, res) => {
+    res.send("Hello Delete");
+  });
+
+app.listen(3000, () => {
+  console.log("Server is running on port 3000");
+});
+const express = require("express");
+
+const app = express();
+app.use(express.json());
+
+function shakilCheck(req, res, next) {
+  const username = req.query.name;
+  if(username == "shakil"){
+      next();
+      return;
+  }
+  res.status(401).send("U are not authorized");
 }
 
-function auth(req,res, next){
-    if(req.query.admin === 'true'){
-        next()
-    }else{
-        res.send("No auth");
+function login(req, res, next) {
+    const username = req.body.username;
+    const password = req.body.password;
+    if(username == "Heeler" && password == "shakil"){
+        next();
+        return;
     }
+    res.status(401).send
 }
